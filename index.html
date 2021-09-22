@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Email Checker</title>
+    </head>
+    <body>
+        <h1>Email Checker</h1>
+        <h3>Please Enter your email below</h3>
+        <textarea id='html-email' rows='1' cols='50'></textarea>
+        <button onclick="buttonClicked()">submit</button>
+        <script>
+            console.log("welcome to my new website")
+            var url = 'https://europe-west3-uob-bucket.cloudfunctions.net/function_test?email='
+
+            function getUrl(requestUrl){
+                var xmlHTTP = new XMLHttpRequest()
+                xmlHTTP.open("GET",reqeustUrl, false)
+                xmlHTTP.send(null)
+                return xmlHTTP.responseText
+            }
+            function buttonClicked(){
+                console.log('Button Clicked')
+                var emailValue = document.getElementById('html-email').value
+                console.log(emailValue.value)
+                var myUrl = url + emailValue
+                console.log(getUrl(myUrl))
+            }
+        
+        </script>
+    </body>
+</html>
